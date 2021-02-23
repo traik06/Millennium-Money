@@ -41,7 +41,7 @@ app.use(session({
 // routers
 app.use('/', require('./routes/index'));
 app.use('/', require('./routes/user'));
-
+//app.use('/', require('./routes/expense'));
 
 // connect mongoose to db
 mongoose.connect(process.env.DATABASE_URL, { userNewURLParser: true })

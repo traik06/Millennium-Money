@@ -46,6 +46,28 @@ router.post('/register', async (req, res) => {
     }
 })
 
+
+router.get('/dashboard', (req, res) => {
+    res.render('dashboard')
+})
+
+router.get('/spending', (req, res) => {
+    res.render('spending')
+})
+router.get('/saving', (req, res) => {
+    res.render('saving')
+})
+router.get('/monthlyPayment', (req, res) => {
+    res.render('monthlyPayment')
+})
+router.get('/fileExpenses', (req, res) => {
+    res.render('fileExpenses')
+})
+router.get('/reports', (req, res) => {
+    res.render('reports')
+})
+
+
 // logout
 // router.D('/logout', (req, res) => {
 //     req.logOut()
