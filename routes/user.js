@@ -3,7 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const User = require("../models/user.js");
-
+const Expense = require("../models/expense.js");
 
 router.get('/login', (req, res) => {
     res.render('login.ejs')
@@ -67,6 +67,26 @@ router.get('/reports', (req, res) => {
     res.render('reports')
 })
 
+
+router.post('/fileExpenses', async (req, res) => {
+    keys = Object.keys(req.body)
+    for (i = 0; i < keys.length; i++) {
+        const expense = new Expense({
+            name: keys[i],
+            amount: req.body[keys[i]]
+            
+        })
+        expense.save()
+    }
+
+    
+    
+    res.render('dashboard')
+
+
+
+    
+})
 
 // logout
 // router.D('/logout', (req, res) => {

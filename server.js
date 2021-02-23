@@ -9,6 +9,7 @@ const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const exEjsLay = require('express-ejs-layouts');
+//const bodyParser = require('body-parser')
 require("./passportconfig")(passport)
 
 
@@ -19,7 +20,7 @@ app.set('view engine', 'ejs')
 //app.set('layout', 'layout')
 app.use (exEjsLay)
 
-
+//app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extened: false}))
 app.use(flash())
 
