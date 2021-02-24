@@ -1,15 +1,6 @@
 const mongoose = require('mongoose')
 
 const expenseSchema = new mongoose.Schema({
-    // name: {
-    //     type: String,
-    //     required: false,
-    // },
-    // amount: {
-    //     type: Number,
-    //     required: false,
-    // },
-    
     rentAmount: {
         type: Number,
         required: false,
@@ -46,10 +37,11 @@ const expenseSchema = new mongoose.Schema({
         type: Number,
         required: false,
     },
-    id: {
-        type: String,
-        required: true,
-    }
+    userID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+      }
 })
 
 const Expense = mongoose.model('Expense', expenseSchema)

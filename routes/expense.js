@@ -1,29 +1,28 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const Expense = require("../models/expense.js");
 const { ensureAuthenticated } = require("../auth.js");
 
-router.get('/spending', (req, res) => {
-    res.render('spending')
+router.get('/spending', ensureAuthenticated, (req, res) => {
+    res.render('spending', { user: req.user });
 })
 
 
 
-router.get('/monthlyPayment', (req, res) => {
-    res.render('monthlyPayment')
+router.get('/monthlyPayment', ensureAuthenticated, (req, res) => {
+    res.render('monthlyPayment', { user: req.user });
 })
-router.get('/fileExpenses', (req, res) => {
-    res.render('fileExpenses')
+router.get('/fileExpenses', ensureAuthenticated, (req, res) => {
+    res.render('fileExpenses', { user: req.user });
 })
-router.get('/reports', (req, res) => {
-    res.render('reports')
+router.get('/reports', ensureAuthenticated, (req, res) => {
+    res.render('reports', { user: req.user });
 })
 
 
 
-router.post('/fileExpenses',  (req, res) => {
-    console.log(req.user.id)
-    var userID = req.user.id;
+router.post('/fileExpenses', (req, res) => {
     const expense = new Expense({
         rentAmount: req.body.rent,
         carAmount: req.body.car,
@@ -34,15 +33,11 @@ router.post('/fileExpenses',  (req, res) => {
         membershipsAmount: req.body.memberships,
         utilitiesAmount: req.body.utilities,
         internetAmount: req.body.internet,
-        id: userID
+        userID: req.user._id
 
     })
     expense.save()
 res.render('dashboard')    
 })
-
-
-
-
 
 module.exports = router

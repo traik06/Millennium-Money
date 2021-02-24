@@ -25,15 +25,19 @@ app.use(express.urlencoded({ extened: false}))
 app.use(flash())
 
 
-//passport initialization
-app.use(passport.initialize())
-app.use(passport.session())
+
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false
 }))
+
+//passport initialization
+app.use(passport.initialize())
+app.use(passport.session())
+
+
 
 
 

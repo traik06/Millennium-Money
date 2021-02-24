@@ -3,8 +3,6 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const User = require("../models/user.js");
-const Expense = require("../models/expense.js");
-const Account = require("../models/expense.js");
 const { ensureAuthenticated } = require("../auth.js");
 
 router.get('/login', (req, res) => {
@@ -21,7 +19,7 @@ router.get('/register', (req, res) => {
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', {
     successRedirect: '/dashboard',
-    failureRedirect: '/login',
+    failureRedirect: '/register',
     failureFlash: true,
   })(req, res, next);
 });
@@ -49,8 +47,8 @@ router.post('/register', async (req, res) => {
 })
 
 
-router.get('/dashboard', (req, res) => {
-    res.render('dashboard')
+router.get('/dashboard', ensureAuthenticated, (req, res) => {
+    res.render('dashboard', { user: req.user });
 })
 
 
