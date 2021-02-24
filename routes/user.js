@@ -4,6 +4,8 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 const User = require("../models/user.js");
 const Expense = require("../models/expense.js");
+const Account = require("../models/expense.js");
+const { ensureAuthenticated } = require("../auth.js");
 
 router.get('/login', (req, res) => {
     res.render('login.ejs')
@@ -19,7 +21,7 @@ router.get('/register', (req, res) => {
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', {
     successRedirect: '/dashboard',
-    failureRedirect: '/users/login',
+    failureRedirect: '/login',
     failureFlash: true,
   })(req, res, next);
 });
@@ -51,47 +53,42 @@ router.get('/dashboard', (req, res) => {
     res.render('dashboard')
 })
 
-router.get('/spending', (req, res) => {
-    res.render('spending')
-})
-router.get('/saving', (req, res) => {
-    res.render('saving')
-})
-router.get('/monthlyPayment', (req, res) => {
-    res.render('monthlyPayment')
-})
-router.get('/fileExpenses', (req, res) => {
-    res.render('fileExpenses')
-})
-router.get('/reports', (req, res) => {
-    res.render('reports')
-})
-
-
-router.post('/fileExpenses', async (req, res) => {
-    keys = Object.keys(req.body)
-    for (i = 0; i < keys.length; i++) {
-        const expense = new Expense({
-            name: keys[i],
-            amount: req.body[keys[i]]
-            
-        })
-        expense.save()
-    }
-
-    
-    
-    res.render('dashboard')
 
 
 
-    
-})
+
+
 
 // logout
-// router.D('/logout', (req, res) => {
-//     req.logOut()
-//     res.redirect('/login')
-// })
-
+router.get('/logout', (req, res) => {
+    req.logout();
+    //req.flash('success_msg', 'Now logged out');
+    res.redirect('index');
+  });
 module.exports = router
+
+
+
+
+
+// may need idk lel
+
+// router.post('/fileExpenses', async (req, res) => {
+//     keys = Object.keys(req.body)
+//     for (i = 0; i < keys.length; i++) {
+//         const expense = new Expense({
+//             name: keys[i],
+//             amount: req.body[keys[i]]
+            
+//         })
+//         expense.save()
+//     }
+
+    
+    
+//     res.render('dashboard')
+
+
+
+    
+// })

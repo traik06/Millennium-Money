@@ -19,34 +19,34 @@
 <body style="background-color: #eef4f7;">
     <nav class="navbar navbar-light navbar-expand-md custom-header" style="background-color: #eef4f7;">
         <div class="container-fluid">
-            <div><a class="navbar-brand" href="#">Millenniunm Money<span></span> </a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
+            <div><a class="navbar-brand" href="/dashboard">Millenniunm Money<span></span> </a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="navbar-nav links">
-                    <li class="nav-item"><a class="nav-link" href="Dashboard.html" style="margin-right: 100px;">Home&nbsp;</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" style="margin-right: 100px;text-align: center;">Expenses&nbsp;</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"> Reports</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/dashboard" style="margin-right: 100px;">Home&nbsp;</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/expenses" style="margin-right: 100px;text-align: center;">Expenses&nbsp;</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/reports"> Reports</a></li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#">Profile </a>
-                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">Settings </a><a class="dropdown-item" href="#">Payments </a><a class="dropdown-item" href="#">Logout </a></div>
+                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="/settings">Settings </a><a class="dropdown-item" href="/payments">Payments </a><a class="dropdown-item" href="/logout">Logout </a></div>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <form style="margin-top: 200px;">
+    <form style="margin-top: 200px;" action="/account" method="POST">
         <div class="container">
             <div class="form-row">
                 <div class="col-md-6 col-xl-5" style="margin: 15px;margin-left: 75px;background-color: white;">
                     <p style="text-align: center;margin-top: 25px;"><strong>Checking Account</strong></p>
-                    <p><strong><span style="text-decoration: underline;">Checking Available Balance</span></strong></p><input class="form-control" type="text" style="width: 300px;">
+                    <p><strong><span style="text-decoration: underline;">Checking Available Balance</span></strong></p><input class="form-control" type="checking" id="checking" name="checking" style="width: 300px;">
                 </div>
                 <div class="col-md-6 col-xl-5" style="margin: 15px;background-color: white;">
                     <p style="text-align: center;margin-top: 25px;"><strong>Savings Account</strong></p>
-                    <p><strong><span style="text-decoration: underline;">Saving Available Balance</span></strong></p><input class="form-control" type="text" style="width: 300px;margin-bottom: 25px;">
+                    <p><strong><span style="text-decoration: underline;">Saving Available Balance</span></strong></p><input class="form-control" type="savings" id="savings" name="savings" style="width: 300px;margin-bottom: 25px;">
                 </div>
             </div>
-        </div><button class="btn btn-primary" type="button" style="margin-left: 680px;margin-top: 20px;">Submit</button>
+        </div><button class="btn btn-primary" type="submit" style="margin-left: 680px;margin-top: 20px;">Submit</button>
     </form>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
