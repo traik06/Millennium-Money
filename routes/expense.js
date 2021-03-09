@@ -8,11 +8,11 @@ const { ensureAuthenticated } = require("../auth.js");
 router.get('/spending', ensureAuthenticated, (req, res) => {
     Account.findOne({userID: req.user}, function(err,obj) { 
         jacob = obj.savingsAmount 
-        res.send(jacob)
+        //res.send(jacob)
         //console.log(jacob)
         
     });
-    jacob = 76
+    jacob = 166
     // var jacob = res.locals.jacob
     res.render('spending', { user: req.user, data: jacob });
 })
