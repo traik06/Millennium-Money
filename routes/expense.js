@@ -2,10 +2,19 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const Expense = require("../models/expense.js");
+const Account = require("../models/account.js");
 const { ensureAuthenticated } = require("../auth.js");
 
 router.get('/spending', ensureAuthenticated, (req, res) => {
-    res.render('spending', { user: req.user });
+    Account.findOne({userID: req.user}, function(err,obj) { 
+        jacob = obj.savingsAmount 
+        res.send(jacob)
+        //console.log(jacob)
+        
+    });
+    jacob = 76
+    // var jacob = res.locals.jacob
+    res.render('spending', { user: req.user, data: jacob });
 })
 
 

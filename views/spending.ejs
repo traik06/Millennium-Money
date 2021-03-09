@@ -159,15 +159,17 @@
               <body>
                 <canvas id="myChart3" width="100px" height="100px"></canvas>
               </body>
-              <script>
+              
+              <script type ='text/javascript'>
                 var ctx = document.getElementById('myChart3');
+                var yoot = "<%= data %>"
                 var myChart = new Chart(ctx, {
                     type: 'pie',
                     data: {
                         labels: ['Rent', 'Vehicle', 'Phone', 'Food', 'Fuel', 'Leisure', 'Memberships', 'Utilities', 'Internet'],
                         datasets: [{
                             label: 'Total Cash Value',
-                            data: [12, 19, 3, 5, 2, 3, 2, 9, 3],
+                            data: [yoot, 19, 3, 5, 2, 3, 2, 9, 3],
                             backgroundColor: [
                                 'rgba(255,  99, 132, 0.2)',
                                 'rgba( 54, 162, 235, 0.2)',
