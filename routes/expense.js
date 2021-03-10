@@ -5,7 +5,16 @@ const Expense = require("../models/expense.js");
 const Account = require("../models/account.js");
 const { ensureAuthenticated } = require("../auth.js");
 
-router.get('/spending', ensureAuthenticated, function(req, res) {
+
+
+
+router.get('/spending', ensureAuthenticated, (req, res) => {
+    
+    
+    res.render('spending', { user: req.user });
+})
+
+router.get('/spending1', ensureAuthenticated, function(req, res) {
     Account.findOne({userID: req.user}).exec(function(err,obj) { 
         savingsamt = obj.savingsAmount 
         checkingamt = obj.checkingAmount
@@ -19,7 +28,7 @@ router.get('/spending', ensureAuthenticated, function(req, res) {
         //Account.
         
         // var jacob = res.locals.jacob
-        res.render('spending', {
+        res.render('spending1', {
             user: req.user, 
             savings: savingsamt,
             checking : checkingamt 

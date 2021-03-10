@@ -5,51 +5,68 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>MillenniumMoney</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
-    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <link rel="stylesheet" href="/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="/css/Features-Boxed.css">
+    <link rel="stylesheet" href="/css/Footer-Basic.css">
+    <link rel="stylesheet" href="/css/Header-Blue.css">
+    <link rel="stylesheet" href="/css/Header-Dark.css">
+    <link rel="stylesheet" href="/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="/css/Pretty-Header-1.css">
+    <link rel="stylesheet" href="/css/Pretty-Header.css">
+    <link rel="stylesheet" href="/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/Tamplate-SB-Admin-on-BSS.css">
 </head>
 
 <body style="background-color: #eef4f7;">
     <nav class="navbar navbar-light navbar-expand-md custom-header" style="background-color: #eef4f7;">
         <div class="container-fluid">
-            <div><a class="navbar-brand" href="/dashboard">Millenniunm Money<span></span> </a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
+            <div><a class="navbar-brand" href="#">Millenniunm Money<span></span> </a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="navbar-nav links">
-                    <li class="nav-item"><a class="nav-link" href="/dashboard" style="margin-right: 100px;">Home&nbsp;</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/fileExpenses" style="margin-right: 100px;text-align: center;">Expenses&nbsp;</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/reports"> Reports</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Dashboard.html" style="margin-right: 100px;">Home&nbsp;</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="margin-right: 100px;text-align: center;">Expenses&nbsp;</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"> Reports</a></li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#">Profile </a>
-                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="/settings">Settings </a><a class="dropdown-item" href="/payments">Payments </a><a class="dropdown-item" href="/logout">Logout </a></div>
+                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">Settings </a><a class="dropdown-item" href="#">Payments </a><a class="dropdown-item" href="#">Logout </a></div>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <form style="margin-top: 200px;" action="/account" method="POST">
+    <h1 style="text-align: center;/*border-bottom: 5px;*//*border-color: grey;*/padding-top: 50px;">File Checking and Saving Account Balances</h1>
+    <p style="text-align: center;">Remember to select submit button below to input expenses</p>
+    <form style="margin-top: 100px;">
         <div class="container">
             <div class="form-row">
-                <div class="col-md-6 col-xl-5" style="margin: 15px;margin-left: 75px;background-color: white;">
+                <div class="col-md-6 col-xl-5" style="margin-left: 75px;background-color: white;margin: 15px;width: 200px;">
                     <p style="text-align: center;margin-top: 25px;"><strong>Checking Account</strong></p>
-                    <p><strong><span style="text-decoration: underline;">Checking Available Balance</span></strong></p><input class="form-control" type="checking" id="checking" name="checking" style="width: 300px;">
+                    <p style="text-align: center;"><strong><span style="text-decoration: underline;">Checking Available Balance</span></strong></p><input class="form-control" type="text" style="width: 300px;margin-left: 75px;">
                 </div>
                 <div class="col-md-6 col-xl-5" style="margin: 15px;background-color: white;">
                     <p style="text-align: center;margin-top: 25px;"><strong>Savings Account</strong></p>
-                    <p><strong><span style="text-decoration: underline;">Saving Available Balance</span></strong></p><input class="form-control" type="savings" id="savings" name="savings" style="width: 300px;margin-bottom: 25px;">
+                    <p style="text-align: center;"><strong><span style="text-decoration: underline;">Saving Available Balance</span></strong></p><input class="form-control" type="text" style="width: 300px;margin-bottom: 25px;margin-left: 75px;">
+                </div>
+                <div class="col-md-6 col-xl-5" style="margin: 15px;margin-left: 280px;background-color: white;text-align: center;">
+                    <p style="text-align: center;margin-top: 25px;"><strong>Checking Account</strong></p>
+                    <p><strong><span style="text-decoration: underline;">Checking Available Balance</span></strong></p><input class="form-control" type="text" style="width: 300px;margin-bottom: 25px;margin-left: 75px;">
                 </div>
             </div>
-        </div><button class="btn btn-primary" type="submit" style="margin-left: 680px;margin-top: 20px;">Submit</button>
+        </div><button class="btn btn-primary" type="button" style="margin-left: 860px;margin-top: 20px;">Submit</button>
     </form>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
