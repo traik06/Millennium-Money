@@ -1,45 +1,63 @@
 <!DOCTYPE html>
-<html lang="en" style="background-color: #eef4f7;">
+<html lang="en" style="background-color: #eef4f7">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
     <title>MillenniumMoney</title>
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
-    <link rel="stylesheet" href="/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="/fonts/ionicons.min.css">
-    <link rel="stylesheet" href="/fonts/fontawesome5-overrides.min.css">
-    <link rel="stylesheet" href="/css/Features-Boxed.css">
-    <link rel="stylesheet" href="/css/Footer-Basic.css">
-    <link rel="stylesheet" href="/css/Header-Blue.css">
-    <link rel="stylesheet" href="/css/Header-Dark.css">
-    <link rel="stylesheet" href="/css/Login-Form-Clean.css">
-    <link rel="stylesheet" href="/css/Navigation-Clean.css">
-    <link rel="stylesheet" href="/css/Navigation-with-Search.css">
-    <link rel="stylesheet" href="/css/Pretty-Header-1.css">
-    <link rel="stylesheet" href="/css/Pretty-Header.css">
-    <link rel="stylesheet" href="/css/Registration-Form-with-Photo.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/Tamplate-SB-Admin-on-BSS.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" />
+    <link rel="stylesheet" href="/fonts/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="/fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="/fonts/ionicons.min.css" />
+    <link rel="stylesheet" href="/fonts/fontawesome5-overrides.min.css" />
+    <link rel="stylesheet" href="/css/Features-Boxed.css" />
+    <link rel="stylesheet" href="/css/Footer-Basic.css" />
+    <link rel="stylesheet" href="/css/Header-Blue.css" />
+    <link rel="stylesheet" href="/css/Header-Dark.css" />
+    <link rel="stylesheet" href="/css/Login-Form-Clean.css" />
+    <link rel="stylesheet" href="/css/Navigation-Clean.css" />
+    <link rel="stylesheet" href="/css/Navigation-with-Search.css" />
+    <link rel="stylesheet" href="/css/Pretty-Header-1.css" />
+    <link rel="stylesheet" href="/css/Pretty-Header.css" />
+    <link rel="stylesheet" href="/css/Registration-Form-with-Photo.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/Tamplate-SB-Admin-on-BSS.css" />
+
+    <!--Links for charts-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 
-<body style="background-color: #eef4f7;">
-    <nav class="navbar navbar-light navbar-expand-md custom-header" style="background-color: #eef4f7;">
+<body style="background-color: #eef4f7">
+    <nav class="navbar navbar-light navbar-expand-md custom-header" style="background-color: #eef4f7">
         <div class="container-fluid">
-            <div><a class="navbar-brand" href="#">Millenniunm Money<span></span> </a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
+            <div>
+                <a class="navbar-brand" href="#">Millenniunm Money<span></span> </a><button data-toggle="collapse"
+                    class="navbar-toggler" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="navbar-nav links">
-                    <li class="nav-item"><a class="nav-link" href="/dashboard" style="margin-right: 100px;">Home&nbsp;</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/expenses" style="margin-right: 100px;text-align: center;">Expenses&nbsp;</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/reports"> Reports</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard" style="margin-right: 100px">Home&nbsp;</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="margin-right: 100px; text-align: center">Expenses&nbsp;</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#"> Reports</a></li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#">Profile </a>
-                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">Settings </a><a class="dropdown-item" href="#">Payments </a><a class="dropdown-item" href="#">Logout </a></div>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown"
+                            href="#">Profile
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#">Settings </a><a class="dropdown-item" href="#">Payments
+                            </a><a class="dropdown-item" href="#">Logout </a>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -48,36 +66,52 @@
     <section class="features-boxed">
         <div class="container">
             <div class="intro">
-                <h2 class="text-center">Expense Graphs &amp; Cash Balances</h2>
+                <h2 class="text-center">Checking &amp; Savings Account</h2>
                 <p class="text-center"></p>
             </div>
             <div class="row justify-content-center features">
                 <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div class="box"><i class="fas fa-arrow-alt-circle-down icon"></i>
+                    <div class="box">
+                        <i class="fas fa-arrow-alt-circle-down icon"></i>
                         <h3 class="name">Checkings and Savings</h3>
                         <p class="description">Total Cash Value&nbsp;</p>
+
+                        <body>
+                            <canvas id="myChart2" width="100px" height="100px"></canvas>
+                        </body>
+                        <script>
+                            var ctx = document.getElementById('myChart2');
+                            var myChart = new Chart(ctx, {
+                                type: 'pie',
+                                data: {
+                                    labels: ['Checking', 'Saving'],
+                                    datasets: [{
+                                        label: 'Total Cash Value',
+                                        data: [12, 19],
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.2)',
+                                            'rgba(54, 162, 235, 0.2)'
+                                        ],
+                                        borderColor: [
+                                            'rgba(255, 99, 132, 1)',
+                                            'rgba(54, 162, 235, 1)'
+                                        ],
+                                        borderWidth: 1
+                                    }]
+                                },
+                            });
+                        </script>
+
+
+
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div class="box"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-box icon">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3"></polyline>
-                            <line x1="12" y1="12" x2="20" y2="7.5"></line>
-                            <line x1="12" y1="12" x2="12" y2="21"></line>
-                            <line x1="12" y1="12" x2="4" y2="7.5"></line>
-                        </svg>
-                        <h3 class="name">Expenses</h3>
-                        <p class="description">Expenses In Categories</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div class="box"><i class="fa fa-list-alt icon"></i>
-                        <h3 class="name">Expense Distribution</h3>
-                        <p class="description">50% Needs --- 30% Wants --- 20% Savings</p>
-                    </div>
-                </div>
-            </div><a href="#" style="margin-left: 5px;">Click Here to See Checking &amp; Savings Accounts</a><a href="#" style="margin-left: 65px;">Click Here to See Expenses In Categories</a><a href="#" style="margin-left: 115px;">Click Here to see Distribution Chart</a>
-        </div>
+
+
+            </div>
+            <a href="/spending1" style="margin-left: 5px;">Click Here to See Checking &amp; Savings Accounts</a>
+            <a href="/spending2" style="margin-left: 65px;">Click Here to See Expenses In Categories</a>
+            <a href="/spending3" style="margin-left: 115px;">Click Here to see Distribution Chart</a>
     </section>
     <script src="/js/jquery.min.js"></script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
