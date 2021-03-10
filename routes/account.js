@@ -15,6 +15,7 @@ router.post('/account', (req, res) => {
     const account = new Account({
         checkingAmount: req.body.checking,
         savingsAmount: req.body.savings,
+        monthlyIncome: req.body.monthlyIncome,
         userID: req.user._id
     })
     account.save()

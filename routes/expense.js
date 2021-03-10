@@ -61,6 +61,7 @@ router.get('/spending2', ensureAuthenticated, function(req, res) {
             Rent: rent,
             Car : car,
             Phone : phone,
+            Food : food,
             Fuel : fuel,
             Leisure : leisure,
             Memberships : memberships,

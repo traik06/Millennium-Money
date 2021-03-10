@@ -21,6 +21,21 @@ router.post('/adminLogin', (req, res, next) => {
       failureFlash: true,
     })(req, res, next);
   });
-  
+
+
+  router.post('/deleteUser', function(req, res) {
+    User.findOne({username: req.body.username}).exec(function(err,obj) { 
+        
+        if (!obj) {
+            req.flash('error', 'that user does not have accounts');
+            return res.redirect('spending');
+        }
+        User.remove()
+        res.render('admin')
+        
+        
+
+    });
+});
 
 module.exports = router

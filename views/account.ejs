@@ -47,23 +47,23 @@
     </nav>
     <h1 style="text-align: center;/*border-bottom: 5px;*//*border-color: grey;*/padding-top: 50px;">File Checking and Saving Account Balances</h1>
     <p style="text-align: center;">Remember to select submit button below to input expenses</p>
-    <form style="margin-top: 100px;">
+    <form style="margin-top: 100px;" action="/account" method="POST" >
         <div class="container">
             <div class="form-row">
                 <div class="col-md-6 col-xl-5" style="margin-left: 75px;background-color: white;margin: 15px;width: 200px;">
                     <p style="text-align: center;margin-top: 25px;"><strong>Checking Account</strong></p>
-                    <p style="text-align: center;"><strong><span style="text-decoration: underline;">Checking Available Balance</span></strong></p><input class="form-control" type="text" style="width: 300px;margin-left: 75px;">
+                    <p style="text-align: center;"><strong><span style="text-decoration: underline;">Checking Available Balance</span></strong></p><input class="form-control" type="checking" id="checking" name="checking" style="width: 300px;margin-left: 75px;">
                 </div>
                 <div class="col-md-6 col-xl-5" style="margin: 15px;background-color: white;">
                     <p style="text-align: center;margin-top: 25px;"><strong>Savings Account</strong></p>
-                    <p style="text-align: center;"><strong><span style="text-decoration: underline;">Saving Available Balance</span></strong></p><input class="form-control" type="text" style="width: 300px;margin-bottom: 25px;margin-left: 75px;">
+                    <p style="text-align: center;"><strong><span style="text-decoration: underline;">Saving Available Balance</span></strong></p><input class="form-control" type="savings" id="savings" name="savings" style="width: 300px;margin-bottom: 25px;margin-left: 75px;">
                 </div>
                 <div class="col-md-6 col-xl-5" style="margin: 15px;margin-left: 280px;background-color: white;text-align: center;">
                     <p style="text-align: center;margin-top: 25px;"><strong>Monthly Income</strong></p>
-                    <p><strong><span style="text-decoration: underline;">Monthly Income Amount</span></strong></p><input class="form-control" type="text" style="width: 300px;margin-bottom: 25px;margin-left: 75px;">
+                    <p><strong><span style="text-decoration: underline;">Monthly Income Amount</span></strong></p><input class="form-control" type="monthlyIncome" id="monthlyIncome" name="monthlyIncome" style="width: 300px;margin-bottom: 25px;margin-left: 75px;">
                 </div>
             </div>
-        </div><button class="btn btn-primary" type="button" style="margin-left: 862px;margin-top: 20px;">Submit</button>
+        </div><button class="btn btn-primary" type="submit" style="margin-left: 862px;margin-top: 20px;">Submit</button>
     </form>
     <script src="/js/jquery.min.js"></script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
