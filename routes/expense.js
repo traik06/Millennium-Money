@@ -51,7 +51,7 @@ router.get('/spending2', ensureAuthenticated, function(req, res) {
 
         if (!obj) {
             req.flash('error', 'that user does not have expenses');
-            return res.redirect('/spending2');
+            return res.redirect('spending');
         }
         //Account.
         
@@ -79,12 +79,12 @@ router.get('/spending3', ensureAuthenticated, function(req, res) {
     
         if (!obj) {
             req.flash('error', 'that user does not have accounts');
-            return res.redirect('/spending');
+            return res.redirect('spending');
         }
         //Account.
         
         // var jacob = res.locals.jacob
-        res.render('spending', {
+        res.render('spending3', {
             user: req.user, 
             data: jacob 
         });
