@@ -7,6 +7,63 @@ const { ensureAuthenticated } = require("../auth.js");
 
 router.get('/spending', ensureAuthenticated, function(req, res) {
     Account.findOne({userID: req.user}).exec(function(err,obj) { 
+        savingsamt = obj.savingsAmount 
+        checkingamt = obj.checkingAmount
+        //res.send(jacob)
+        //console.log(jacob)
+    
+        if (!obj) {
+            req.flash('error', 'that user does not have accounts');
+            return res.redirect('/spending');
+        }
+        //Account.
+        
+        // var jacob = res.locals.jacob
+        res.render('spending', {
+            user: req.user, 
+            savings: savingsamt,
+            checking : checkingamt 
+        });
+
+    });
+});
+
+router.get('/spending2', ensureAuthenticated, function(req, res) {
+    Expense.findOne({userID: req.user}).exec(function(err,obj) { 
+        rent = obj.rentAmount
+        car = obj.carAmount
+        phone = obj.phoneAmount
+        food = obj.foodAmount
+        fuel = obj.fuelAmount
+        leisure = obj.leisureAmount
+        memberships = obj.membershipsAmount
+        util = obj.utilitiesAmount
+        internet = obj.internetAmount
+
+        if (!obj) {
+            req.flash('error', 'that user does not have expenses');
+            return res.redirect('/spending2');
+        }
+        //Account.
+        
+        // var jacob = res.locals.jacob
+        res.render('spending2', {
+            user: req.user, 
+            Rent: rent,
+            Car : car,
+            Phone : phone,
+            Fuel : fuel,
+            Leisure : leisure,
+            Memberships : memberships,
+            Util : util,
+            Internet : internet
+        });
+
+    });
+});
+
+router.get('/spending3', ensureAuthenticated, function(req, res) {
+    Account.findOne({userID: req.user}).exec(function(err,obj) { 
         jacob = obj.savingsAmount 
         //res.send(jacob)
         //console.log(jacob)
@@ -25,7 +82,6 @@ router.get('/spending', ensureAuthenticated, function(req, res) {
 
     });
 });
-
 
 
 
