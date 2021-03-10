@@ -5,17 +5,27 @@ const Expense = require("../models/expense.js");
 const Account = require("../models/account.js");
 const { ensureAuthenticated } = require("../auth.js");
 
-router.get('/spending', ensureAuthenticated, (req, res) => {
-    Account.findOne({userID: req.user}, function(err,obj) { 
+router.get('/spending', ensureAuthenticated, function(req, res) {
+    Account.findOne({userID: req.user}).exec(function(err,obj) { 
         jacob = obj.savingsAmount 
         //res.send(jacob)
         //console.log(jacob)
+    
+        if (!obj) {
+            req.flash('error', 'that user does not have accounts');
+            return res.redirect('/spending');
+        }
+        //Account.
         
+        // var jacob = res.locals.jacob
+        res.render('spending', {
+            user: req.user, 
+            data: jacob 
+        });
+
     });
-    jacob = 166
-    // var jacob = res.locals.jacob
-    res.render('spending', { user: req.user, data: jacob });
-})
+});
+
 
 
 
