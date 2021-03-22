@@ -25,10 +25,7 @@ router.post('/account', (req, res) => {
 })
 
 
-router.get('/api', (req, res) => {
-    data = 132
-    response.json(data);
-});
+
 
 //router.get('/getAccountData', (req, res) => {
     // Account.findOne({}, (err, data) => {

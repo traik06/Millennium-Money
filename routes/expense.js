@@ -18,16 +18,15 @@ router.get('/spending1', ensureAuthenticated, function(req, res) {
     Account.findOne({userID: req.user}).exec(function(err,obj) { 
         savingsamt = obj.savingsAmount 
         checkingamt = obj.checkingAmount
-        //res.send(jacob)
-        //console.log(jacob)
+       
     
         if (!obj) {
             req.flash('error', 'that user does not have accounts');
-            return res.redirect('/spending');
+            return res.redirect('spending');
         }
         //Account.
         
-        // var jacob = res.locals.jacob
+        
         res.render('spending1', {
             user: req.user, 
             savings: savingsamt,
