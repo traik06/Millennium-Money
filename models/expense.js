@@ -41,7 +41,11 @@ const expenseSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
-      }
+      },
+    time : { 
+        type : Date, 
+        default: Date.now 
+    }  
 })
 
 const Expense = mongoose.model('Expense', expenseSchema)

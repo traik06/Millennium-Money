@@ -19,7 +19,11 @@ const userSchema = new mongoose.Schema({
         required: true,
         //minlength: 10,
         //maxlength: 256
-    }
+    },
+    time : { 
+        type : Date, 
+        default: Date.now 
+    }  
 })
 
 
