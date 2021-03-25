@@ -152,8 +152,19 @@ router.get('/monthlyPayment', ensureAuthenticated, (req, res) => {
     res.render('monthlyPayment', { user: req.user });
 })
 router.get('/fileExpenses', ensureAuthenticated, (req, res) => {
-    res.render('fileExpenses', { user: req.user });
+    Expense.findOne({userID: req.user}).exec(function(err,obj) { 
+        
+        if (!obj) {
+            //may need return on this line, not sure
+            return res.render('fileExpenses', { user: req.user });
+        }
+        else{
+            return res.render('monthlyPayment', { user: req.user });
+        }
+    
 })
+});
+
 router.get('/reports', ensureAuthenticated, (req, res) => {
     res.render('reports', { user: req.user });
 })
