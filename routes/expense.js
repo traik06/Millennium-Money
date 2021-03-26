@@ -37,6 +37,16 @@ router.get('/spending1', ensureAuthenticated, function(req, res) {
 });
 
 router.get('/spending2', ensureAuthenticated, function(req, res) {
+    monthData=new Date();
+    monthData.setMonth(monthData.getMonth());
+    console.log(monthData.setMonth(monthData.getMonth()));
+    Expense.findOne({time:{$eq:monthData}}).exec(function(err,obj) { 
+        
+        // if (!obj) {
+        //     req.flash('error', 'that user does have an expense from this month');
+        //     console.log(1)
+        //     return res.redirect('spending');
+        // }
     Expense.findOne({userID: req.user}).exec(function(err,obj) { 
         rent = obj.rentAmount
         car = obj.carAmount
@@ -50,6 +60,7 @@ router.get('/spending2', ensureAuthenticated, function(req, res) {
 
         if (!obj) {
             req.flash('error', 'that user does not have expenses');
+            console.log(2)
             return res.redirect('spending');
         }
         //Account.
@@ -67,7 +78,7 @@ router.get('/spending2', ensureAuthenticated, function(req, res) {
             Util : util,
             Internet : internet
         });
-
+    });
     });
 });
 
@@ -151,18 +162,54 @@ router.get('/spending3', ensureAuthenticated, function(req, res) {
 router.get('/monthlyPayment', ensureAuthenticated, (req, res) => {
     res.render('monthlyPayment', { user: req.user });
 })
-router.get('/fileExpenses', ensureAuthenticated, (req, res) => {
-    Expense.findOne({userID: req.user}).exec(function(err,obj) { 
+// router.get('/fileExpenses', ensureAuthenticated, (req, res) => {
+//     Expense.findOne({userID: req.user}).exec(function(err,obj) { 
         
-        if (!obj) {
-            //may need return on this line, not sure
-            return res.render('fileExpenses', { user: req.user });
-        }
-        else{
-            return res.render('monthlyPayment', { user: req.user });
-        }
+//         if (!obj) {
+//             //may need return on this line, not sure
+//             return res.render('fileExpenses', { user: req.user });
+//         }
+//         else{
+//             return res.render('monthlyPayment', { user: req.user });
+//         }
     
-})
+// })
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+//FIX THIS FIX THIS FIX THIS FIX THIS FIX THIS FIX THIS FIX THIS FIX THIS FIX THIS FIX THIS FIX THIS FIX THIS FIX THIS FIX THIS
+//
+//
+//
+router.get('/fileExpenses', ensureAuthenticated, (req, res) => {
+    res.render('fileExpenses', { user: req.user });
+
+
+//     Expense.findOne({userID: req.user}).exec(function(err,obj) { 
+        
+//         if (!obj) {
+//             //may need return on this line, not sure
+//             return res.render('fileExpenses', { user: req.user });
+//         }
+//         else{
+//             return res.render('monthlyPayment', { user: req.user });
+//         }
+    
+// })
 });
 
 router.get('/reports', ensureAuthenticated, (req, res) => {

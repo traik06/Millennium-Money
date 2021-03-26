@@ -80,22 +80,49 @@
                             <canvas id="myChart" width="100px" height="100px"></canvas>
                         </body>
 
-                        <script>                
+                        <script>   
+                        
+                        
+                            var checking = parseInt('<%= checking %>')
+                            var saving = parseInt('<%= savings %>')
+                            var income = parseInt('<%= income %>')
+                            var rent = parseInt('<%= Rent %>')
+                            var car = parseInt('<%= Car %>')
+                            var phone = parseInt('<%= Phone %>')
+                            var food = parseInt('<%= Food %>')
+                            var fuel = parseInt('<%= fuel %>')
+                            var leisure = parseInt('<%= Leisure %>')
+                            var memberships = parseInt('<%= Memberships %>')
+                            var util = parseInt('<%= Util %>')
+                            var internet = parseInt('<%= Internet %>')
+                        
                             var addedNeeds = rent + car + phone + food + fuel + util + internet;
                             var addedWants = memberships + leisure;
                             
                             var perNeeds = ((addedNeeds / income) * 100);
-                            console.log(perNeeds)
+                            
                             var perWants = ((addedWants / income) * 100);
                             var perSaving = ((saving / income) * 100);
+
+                            if ( perSaving > 20 && perWants > 30) {
+                                response = "Good Job Saving! Try cutting back on memberships or spending too much on non-necessities"
+                            }
+                            else if ( perSaving < 20 && perWants < 30) {
+                                response = "Good job spending money in better places! Try saving a little more money on the side."
+                            }
+                            else if (perSaving < 20 && perWants > 30) {
+                                response = "Try spending your money more wisely next month! Save a little more on the side too!"
+                            }
+
+
 
                             var ctx = document.getElementById("myChart");
                             var myChart = new Chart(ctx, {
                                 type: "pie",
                                 data: {
                                     labels: [
-                                        "Wants",
                                         "Needs",
+                                        "Wants",
                                         "Savings",
                                     ],
                                     datasets: [
@@ -121,7 +148,7 @@
                     </div>
                
                     <div class="container">
-                        <h2>ENTER CODE HERE TO TELL USER THEIR SPENDING HABITS</h2>
+                        <h2><script>response </script> </h2>
                     </div>
                 </div>
             </div>

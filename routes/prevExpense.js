@@ -7,17 +7,13 @@ const { ensureAuthenticated } = require("../auth.js");
 
 
 
-
 router.get('/prevExpense', ensureAuthenticated, function(req, res) {
-    Expense.findOne({userID: req.user}).exec(function(err,obj) { 
-        savingsamt = obj.savingsAmount 
-        checkingamt = obj.checkingAmount
-        incomeamt = obj.monthlyIncome 
-        //res.send(jacob)
-        //console.log(jacob)
-    
+    monthData=new Date();
+    monthData.setMonth(monthData.getMonth() - 1);
+    Expense.findOne({time:{$gte:monthData}}).exec(function(err,obj) { 
+        
         if (!obj) {
-            req.flash('error', 'that user does not have accounts');
+            req.flash('error', 'that user does have an expense from last month');
             return res.redirect('spending');
         }
         //Account.
@@ -36,10 +32,20 @@ router.get('/prevExpense', ensureAuthenticated, function(req, res) {
                 req.flash('error', 'that user does not have expenses');
                 return res.redirect('spending');
             }
-            //Account.
+        Account.findOne({userID: req.user}).exec(function(err,obj) { 
+            savingsamt = obj.savingsAmount 
+            checkingamt = obj.checkingAmount
+            incomeamt = obj.monthlyIncome 
             
-            // var jacob = res.locals.jacob
-            res.render('spending3', {
+        
+            if (!obj) {
+                req.flash('error', 'that user does not have accounts');
+                return res.redirect('spending');
+            }
+            
+            
+            
+            res.render('prevExpense', {
                 user: req.user, 
                 Rent: rent,
                 Car : car,
@@ -55,31 +61,11 @@ router.get('/prevExpense', ensureAuthenticated, function(req, res) {
                 income : incomeamt
 
             });
-    
+        });
         });
         
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -84,14 +84,34 @@
                             
                             //Pull Data from Mongo to display saving, wants, and needs.
                             // Enter code here
+                            var checking = parseInt('<%= checking %>')
+                            var saving = parseInt('<%= savings %>')
+                            var income = parseInt('<%= income %>')
+                            var rent = parseInt('<%= Rent %>')
+                            var car = parseInt('<%= Car %>')
+                            var phone = parseInt('<%= Phone %>')
+                            var food = parseInt('<%= Food %>')
+                            var fuel = parseInt('<%= fuel %>')
+                            var leisure = parseInt('<%= Leisure %>')
+                            var memberships = parseInt('<%= Memberships %>')
+                            var util = parseInt('<%= Util %>')
+                            var internet = parseInt('<%= Internet %>')
+                        
+                            var addedNeeds = rent + car + phone + food + fuel + util + internet;
+                            var addedWants = memberships + leisure;
+                            
+                            var perNeeds = ((addedNeeds / income) * 100);
+                            console.log(perNeeds)
+                            var perWants = ((addedWants / income) * 100);
+                            var perSaving = ((saving / income) * 100);
                             
                             var ctx = document.getElementById("myChart");
                             var myChart = new Chart(ctx, {
                                 type: "pie",
                                 data: {
                                     labels: [
-                                        "Wants",
                                         "Needs",
+                                        "Wants",
                                         "Savings",
                                     ],
                                     datasets: [
