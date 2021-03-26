@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background-color: #eef4f7;">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>MillenniumMoney</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/fonts/ionicons.min.css">
     <link rel="stylesheet" href="/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="/css/Features-Boxed.css">
     <link rel="stylesheet" href="/css/Footer-Basic.css">
@@ -24,21 +24,22 @@
     <link rel="stylesheet" href="/css/Pretty-Header.css">
     <link rel="stylesheet" href="/css/Registration-Form-with-Photo.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/Tamplate-SB-Admin-on-BSS.css">
 </head>
 
-<body style="background-color: grey;">
+<body style="background-color: #eef4f7;">
     <nav class="navbar navbar-light navbar-expand-md custom-header" style="background-color: #eef4f7;">
         <div class="container-fluid">
             <div><a class="navbar-brand" href="#">Millenniunm Money<span></span> </a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="navbar-nav links">
-                    <li class="nav-item"><a class="nav-link" href="#" style="margin-right: 100px;">Home&nbsp;</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/fileExpenses" style="margin-right: 100px;text-align: center;">Expenses&nbsp;</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/reportSplash"> Reports</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Dashboard.html" style="margin-right: 100px;">Home&nbsp;</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="margin-right: 100px;text-align: center;">Expenses&nbsp;</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"> Reports</a></li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#">Profile </a>
-                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">Settings </a><a class="dropdown-item" href="/payments">Payments </a><a class="dropdown-item" href="/logout">Logout </a></div>
+                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">Settings </a><a class="dropdown-item" href="#">Payments </a><a class="dropdown-item" href="#">Logout </a></div>
                     </li>
                 </ul>
             </div>
@@ -47,16 +48,10 @@
     <section class="features-boxed">
         <div class="container">
             <div class="intro">
-                <h2 class="text-center">Welcome Back</h2>
+                <h2 class="text-center">Expense Reports</h2>
                 <p class="text-center"></p>
             </div>
             <div class="row justify-content-center features">
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div class="box"><i class="fas fa-arrow-alt-circle-down icon"></i>
-                        <h3 class="name">Accounts</h3>
-                        <p class="description">View Accounts</p><a class="learn-more" href="/account">Check Accounts Here»</a>
-                    </div>
-                </div>
                 <div class="col-sm-6 col-md-5 col-lg-4 item">
                     <div class="box"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-box icon">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -65,27 +60,15 @@
                             <line x1="12" y1="12" x2="12" y2="21"></line>
                             <line x1="12" y1="12" x2="4" y2="7.5"></line>
                         </svg>
-                        <h3 class="name">Savings</h3>
-                        <p class="description">View savings from Filing</p><a class="learn-more" href="/spending">Check Savings Here »</a>
+                        <h3 class="name">Expense Report</h3>
+                        <p class="description">Feedback on Spendings</p>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div class="box"><i class="fa fa-list-alt icon"></i>
-                        <h3 class="name">Monthly Payments&nbsp;</h3>
-                        <p class="description">Track/Modify Monthly Payments</p><a class="learn-more" href="/monthlyPayment">&nbsp;Monthly Payments Here »</a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div class="box"><i class="fa fa-leaf icon"></i>
-                        <h3 class="name">File Expenses</h3>
-                        <p class="description">Fill out Spendings &amp; Savings Here</p><a class="learn-more" href="/fileExpenses">View Expenses Here »</a>
-                    </div>
-                </div>
-            </div>
+            </div><a href="#" style="margin-left: 425px;">Click Here to see Distribution Chart</a>
         </div>
     </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>

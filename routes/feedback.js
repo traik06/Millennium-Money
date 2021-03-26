@@ -7,7 +7,7 @@ const { ensureAuthenticated } = require("../auth.js");
 
 
 
-router.get('/reports', ensureAuthenticated, function(req, res) {
+router.get('/reportSplash', ensureAuthenticated, function(req, res) {
     monthData=new Date();
     monthData.setMonth(monthData.getMonth() - 1);
     Expense.findOne({time:{$gte:monthData}}).exec(function(err,obj) { 
