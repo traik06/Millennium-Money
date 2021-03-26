@@ -7,7 +7,12 @@ const { ensureAuthenticated } = require("../auth.js");
 
 
 
-router.get('/reportSplash', ensureAuthenticated, function(req, res) {
+router.get('/reportSplash', (req, res) => {
+    res.render('reportSplash')
+})
+
+
+router.get('/reportFeedback', ensureAuthenticated, function(req, res) {
     monthData=new Date();
     monthData.setMonth(monthData.getMonth() - 1);
     Expense.findOne({time:{$gte:monthData}}).exec(function(err,obj) { 
@@ -43,7 +48,7 @@ router.get('/reportSplash', ensureAuthenticated, function(req, res) {
                 return res.redirect('spending');
             }
             
-            res.render('reports', {
+            res.render('reportFeedback', {
                 user: req.user, 
                 Rent: rent,
                 Car : car,

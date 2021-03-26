@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="/css/Registration-Form-with-Photo.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/Tamplate-SB-Admin-on-BSS.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 
 <body style="background-color: #eef4f7;">
@@ -56,12 +58,82 @@
                     <div class="box"><i class="fas fa-arrow-alt-circle-down icon"></i>
                         <h3 class="name">Expense Distribution</h3>
                         <p class="description">50% Needs --- 30% Wants --- 20% Savings<br></p>
+
+                        <body>
+                            <canvas id="myChart" width="100px" height="100px"></canvas>
+                        </body>
+
+                        <script>   
+                        
+                        
+                            var checking = parseInt('<%= checking %>')
+                            var saving = parseInt('<%= savings %>')
+                            var income = parseInt('<%= income %>')
+                            var rent = parseInt('<%= Rent %>')
+                            var car = parseInt('<%= Car %>')
+                            var phone = parseInt('<%= Phone %>')
+                            var food = parseInt('<%= Food %>')
+                            var fuel = parseInt('<%= fuel %>')
+                            var leisure = parseInt('<%= Leisure %>')
+                            var memberships = parseInt('<%= Memberships %>')
+                            var util = parseInt('<%= Util %>')
+                            var internet = parseInt('<%= Internet %>')
+                        
+                            var addedNeeds = rent + car + phone + food + fuel + util + internet;
+                            var addedWants = memberships + leisure;
+                            
+                            var perNeeds = ((addedNeeds / income) * 100);
+                            
+                            var perWants = ((addedWants / income) * 100);
+                            var perSaving = ((saving / income) * 100);
+
+                            if ( perSaving > 20 && perWants > 30) {
+                                response = "Good Job Saving! Try cutting back on memberships or spending too much on non-necessities"
+                            }
+                            else if ( perSaving < 20 && perWants < 30) {
+                                response = "Good job spending money in better places! Try saving a little more money on the side."
+                            }
+                            else if (perSaving < 20 && perWants > 30) {
+                                response = "Try spending your money more wisely next month! Save a little more on the side too!"
+                            }
+
+
+
+                            var ctx = document.getElementById("myChart");
+                            var myChart = new Chart(ctx, {
+                                type: "pie",
+                                data: {
+                                    labels: [
+                                        "Needs",
+                                        "Wants",
+                                        "Savings",
+                                    ],
+                                    datasets: [
+                                        {
+                                            label: "# of Votes",
+                                            data: [perNeeds, perWants, perSaving],
+                                            backgroundColor: [
+                                                "rgba(255, 99, 132, 0.4)",
+                                                "rgba(54, 162, 235, 0.4)",
+                                                "rgba(255, 206, 86, 0.4)",
+                                            ],
+                                            borderColor: [
+                                                "rgba(255, 99, 132, 1)",
+                                                "rgba(54, 162, 235, 1)",
+                                                "rgba(255, 206, 86, 1)",
+                                            ],
+                                            borderWidth: 1,
+                                        },
+                                    ],
+                                },
+                            });
+                        </script>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-5 col-lg-4 item">
                     <div class="box"><i class="fa fa-list-alt icon"></i>
                         <h3 class="name">Feedback</h3>
-                        <p class="description">User Spendings in the month</p>
+                        <p class="description"><script>document.write(response)</script></p>
                     </div>
                 </div>
             </div>
