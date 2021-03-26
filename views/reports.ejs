@@ -1,52 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background-color: #eef4f7">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
     <title>MillenniumMoney</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="/fonts/fontawesome5-overrides.min.css">
-    <link rel="stylesheet" href="/css/Features-Boxed.css">
-    <link rel="stylesheet" href="/css/Footer-Basic.css">
-    <link rel="stylesheet" href="/css/Header-Blue.css">
-    <link rel="stylesheet" href="/css/Header-Dark.css">
-    <link rel="stylesheet" href="/css/Login-Form-Clean.css">
-    <link rel="stylesheet" href="/css/Navigation-Clean.css">
-    <link rel="stylesheet" href="/css/Navigation-with-Search.css">
-    <link rel="stylesheet" href="/css/Pretty-Header-1.css">
-    <link rel="stylesheet" href="/css/Pretty-Header.css">
-    <link rel="stylesheet" href="/css/Registration-Form-with-Photo.css">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" />
+    <link rel="stylesheet" href="/fonts/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="/fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="/fonts/ionicons.min.css" />
+    <link rel="stylesheet" href="/fonts/fontawesome5-overrides.min.css" />
+    <link rel="stylesheet" href="/css/Features-Boxed.css" />
+    <link rel="stylesheet" href="/css/Footer-Basic.css" />
+    <link rel="stylesheet" href="/css/Header-Blue.css" />
+    <link rel="stylesheet" href="/css/Header-Dark.css" />
+    <link rel="stylesheet" href="/css/Login-Form-Clean.css" />
+    <link rel="stylesheet" href="/css/Navigation-Clean.css" />
+    <link rel="stylesheet" href="/css/Navigation-with-Search.css" />
+    <link rel="stylesheet" href="/css/Pretty-Header-1.css" />
+    <link rel="stylesheet" href="/css/Pretty-Header.css" />
+    <link rel="stylesheet" href="/css/Registration-Form-with-Photo.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/Tamplate-SB-Admin-on-BSS.css" />
+
+    <!--Links for charts-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 
-<body style="background-color: #eef4f7;">
-    <nav class="navbar navbar-light navbar-expand-md custom-header" style="background-color: #eef4f7;">
+<body style="background-color: #eef4f7">
+    <nav class="navbar navbar-light navbar-expand-md custom-header" style="background-color: #eef4f7">
         <div class="container-fluid">
-            <div><a class="navbar-brand" href="#">Millenniunm Money<span></span> </a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
+            <div>
+                <a class="navbar-brand" href="#">Millenniunm Money<span></span> </a><button data-toggle="collapse"
+                    class="navbar-toggler" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="navbar-nav links">
-                    <li class="nav-item"><a class="nav-link" href="/dashboard" style="margin-right: 100px;">Home&nbsp;</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/expenses" style="margin-right: 100px;text-align: center;">Expenses&nbsp;</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/reports"> Reports</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard" style="margin-right: 100px">Home&nbsp;</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="margin-right: 100px; text-align: center">Expenses&nbsp;</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#"> Reports</a></li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#">Profile </a>
-                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">Settings </a><a class="dropdown-item" href="#">Payments </a><a class="dropdown-item" href="#">Logout </a></div>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown"
+                            href="#">Profile
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#">Settings </a><a class="dropdown-item" href="#">Payments
+                            </a><a class="dropdown-item" href="#">Logout </a>
+                        </div>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <h1 style="margin-top: 300px;margin-left: 100px;">Coming Soon... Thank you for your patience</h1>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+    <section class="features-boxed">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Expense Report</h2>
+                <p class="text-center"></p>
+            </div>
+            <div class="row justify-content-center features">
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box">
+                        <i class="fas fa-arrow-alt-circle-down icon"></i>
+                        <h3 class="name">Expense Distribution</h3>
+                        <p class="description">50% Needs --- 30% Wants --- 20% Savings</p>
+
+                        <body>
+                            <canvas id="myChart" width="100px" height="100px"></canvas>
+                        </body>
+
+                        <script>                
+                            var addedNeeds = rent + car + phone + food + fuel + util + internet;
+                            var addedWants = memberships + leisure;
+                            
+                            var perNeeds = ((addedNeeds / income) * 100);
+                            console.log(perNeeds)
+                            var perWants = ((addedWants / income) * 100);
+                            var perSaving = ((saving / income) * 100);
+
+                            var ctx = document.getElementById("myChart");
+                            var myChart = new Chart(ctx, {
+                                type: "pie",
+                                data: {
+                                    labels: [
+                                        "Wants",
+                                        "Needs",
+                                        "Savings",
+                                    ],
+                                    datasets: [
+                                        {
+                                            label: "# of Votes",
+                                            data: [perNeeds, perWants, perSaving],
+                                            backgroundColor: [
+                                                "rgba(255, 99, 132, 0.4)",
+                                                "rgba(54, 162, 235, 0.4)",
+                                                "rgba(255, 206, 86, 0.4)",
+                                            ],
+                                            borderColor: [
+                                                "rgba(255, 99, 132, 1)",
+                                                "rgba(54, 162, 235, 1)",
+                                                "rgba(255, 206, 86, 1)",
+                                            ],
+                                            borderWidth: 1,
+                                        },
+                                    ],
+                                },
+                            });
+                        </script>
+                    </div>
+               
+                    <div class="container">
+                        <h2>ENTER CODE HERE TO TELL USER THEIR SPENDING HABITS</h2>
+                    </div>
+                </div>
+            </div>
+            
+    </section>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
