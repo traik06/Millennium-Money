@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="/css/Registration-Form-with-Photo.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/Tamplate-SB-Admin-on-BSS.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 
 <body>
@@ -63,6 +65,70 @@
                         </svg>
                         <h3 class="name">Average Spending</h3>
                         <p class="description">Spendings between two months</p>
+
+                        <body>
+                            <canvas id="myChart" width="100px" height="100px"></canvas>
+                        </body>
+
+                        <script>
+                            
+                            //Pull Data from Mongo to display saving, wants, and needs.
+                            // Enter code here
+                            var rent1 = parseInt('<%= Rent1 %>')
+                            var car1 = parseInt('<%= Car1 %>')
+                            var phone1 = parseInt('<%= Phone1 %>')
+                            var food1 = parseInt('<%= Food1 %>')
+                            var fuel1 = parseInt('<%= fuel1 %>')
+                            var leisure1 = parseInt('<%= Leisure1 %>')
+                            var memberships1 = parseInt('<%= Memberships1 %>')
+                            var util1 = parseInt('<%= Util1 %>')
+                            var internet1 = parseInt('<%= Internet1 %>')
+
+                            var rent2 = parseInt('<%= Rent2 %>')
+                            var car2 = parseInt('<%= Car2 %>')
+                            var phone2 = parseInt('<%= Phone2 %>')
+                            var food2 = parseInt('<%= Food2 %>')
+                            var fuel2 = parseInt('<%= fuel2 %>')
+                            var leisure2 = parseInt('<%= Leisure2 %>')
+                            var memberships2 = parseInt('<%= Memberships2 %>')
+                            var util2 = parseInt('<%= Util2 %>')
+                            var internet2 = parseInt('<%= Internet2 %>')
+                            
+                            
+                            var ctx = document.getElementById("myChart");
+                            var myChart = new Chart(ctx, {
+                                type: "bar",
+                                data: {
+                                    labels: [
+                                        "Rent",
+                                        "Car",
+                                        "Phone",
+                                        "Food",
+                                        "Fuel",
+                                        "Leisure",
+                                        "Memberships",
+                                        "Utilities",
+                                        "Internet"
+                                    ],
+                                    datasets: [
+                                        {
+                                            label: "Current Month",
+                                            data: [rent1, car1, phone1, food1, fuel1, leisure1, memberships1, util1, internet1],
+                                            backgroundColor: "blue",
+                                            
+                                            borderWidth: 1,
+                                        },
+                                        {
+                                            label: "Previous Month",
+                                            data: [rent2, car2, phone2, food2, fuel2, leisure2, memberships2, util2, internet2],
+                                            backgroundColor: "red",
+                                            
+                                            borderWidth: 1,
+                                        },
+                                    ],
+                                },
+                            });
+                        </script>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-5 col-lg-4 item"></div>

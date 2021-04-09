@@ -51,7 +51,7 @@ app.use('/', require('./routes/expense'));
 app.use('/', require('./routes/admin'));
 app.use('/', require('./routes/feedback'));
 app.use('/', require('./routes/prevExpense'));
-
+app.use('/', require('./routes/avgExpense'));
 // connect mongoose to db
 mongoose.connect(process.env.DATABASE_URL, { userNewURLParser: true })
 const db = mongoose.connection
