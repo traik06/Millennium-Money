@@ -13,16 +13,15 @@ router.get('/reportSplash', (req, res) => {
 
 
 router.get('/reportFeedback', ensureAuthenticated, function(req, res) {
-    monthData=new Date();
-    monthData.setMonth(monthData.getMonth() - 1);
-    Expense.findOne({time:{$gte:monthData}}).exec(function(err,obj) { 
+    
+    Expense.findOne({userID: req.user, time:{$gt: new Date(new Date().setMonth(new Date().getMonth()-1))}}).exec(function(err,obj) { 
         
-        if (!obj) {
-            req.flash('error', 'that user does have an expense from last month');
-            return res.redirect('spending');
-        }
-        //Account.
-        Expense.findOne({userID: req.user}).exec(function(err,obj) { 
+        // if (!obj) {
+        //     req.flash('error', 'that user does have an expense from last month');
+        //     return res.redirect('spending');
+        // }
+        // //Account.
+        // Expense.findOne({userID: req.user}).exec(function(err,obj) { 
             rent = obj.rentAmount
             car = obj.carAmount
             phone = obj.phoneAmount
@@ -64,7 +63,7 @@ router.get('/reportFeedback', ensureAuthenticated, function(req, res) {
                 income : incomeamt
 
             });
-        });
+        
         });
         
     });

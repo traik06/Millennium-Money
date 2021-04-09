@@ -8,16 +8,15 @@ const { ensureAuthenticated } = require("../auth.js");
 
 
 router.get('/prevExpense', ensureAuthenticated, function(req, res) {
-    monthData=new Date();
-    monthData.setMonth(monthData.getMonth() - 1);
-    Expense.findOne({time:{$gte:monthData}}).exec(function(err,obj) { 
+    
+    Expense.findOne({userID: req.user , time:{$lt: new Date(new Date().setMonth(new Date().getMonth()-1))}}).exec(function(err,obj) { 
         
         if (!obj) {
             req.flash('error', 'that user does have an expense from last month');
             return res.redirect('spending');
         }
         //Account.
-        Expense.findOne({userID: req.user}).exec(function(err,obj) { 
+        
             rent = obj.rentAmount
             car = obj.carAmount
             phone = obj.phoneAmount
@@ -28,10 +27,7 @@ router.get('/prevExpense', ensureAuthenticated, function(req, res) {
             util = obj.utilitiesAmount
             internet = obj.internetAmount
         
-            if (!obj) {
-                req.flash('error', 'that user does not have expenses');
-                return res.redirect('spending');
-            }
+           
         Account.findOne({userID: req.user}).exec(function(err,obj) { 
             savingsamt = obj.savingsAmount 
             checkingamt = obj.checkingAmount
@@ -62,7 +58,7 @@ router.get('/prevExpense', ensureAuthenticated, function(req, res) {
 
             });
         });
-        });
+        
         
     });
 });

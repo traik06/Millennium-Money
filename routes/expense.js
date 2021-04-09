@@ -36,18 +36,61 @@ router.get('/spending1', ensureAuthenticated, function(req, res) {
     });
 });
 
+// router.get('/spending2', ensureAuthenticated, function(req, res) {
+//     monthData=new Date();
+//     monthData.setMonth(monthData.getMonth());
+//     console.log(monthData.setMonth(monthData.getMonth()));
+//     Expense.findOne({time:{$eq:monthData}}).exec(function(err,obj) { 
+        
+//         // if (!obj) {
+//         //     req.flash('error', 'that user does have an expense from this month');
+//         //     console.log(1)
+//         //     return res.redirect('spending');
+//         // }
+//     Expense.findOne({userID: req.user}).exec(function(err,obj) { 
+//         rent = obj.rentAmount
+//         car = obj.carAmount
+//         phone = obj.phoneAmount
+//         food = obj.foodAmount
+//         fuel = obj.fuelAmount
+//         leisure = obj.leisureAmount
+//         memberships = obj.membershipsAmount
+//         util = obj.utilitiesAmount
+//         internet = obj.internetAmount
+
+//         if (!obj) {
+//             req.flash('error', 'that user does not have expenses');
+//             console.log(2)
+//             return res.redirect('spending');
+//         }
+//         //Account.
+        
+//         // var jacob = res.locals.jacob
+//         res.render('spending2', {
+//             user: req.user, 
+//             Rent: rent,
+//             Car : car,
+//             Phone : phone,
+//             Food : food,
+//             Fuel : fuel,
+//             Leisure : leisure,
+//             Memberships : memberships,
+//             Util : util,
+//             Internet : internet
+//         });
+//     });
+//     });
+// });
+
 router.get('/spending2', ensureAuthenticated, function(req, res) {
-    monthData=new Date();
-    monthData.setMonth(monthData.getMonth());
-    console.log(monthData.setMonth(monthData.getMonth()));
-    Expense.findOne({time:{$eq:monthData}}).exec(function(err,obj) { 
+    Expense.findOne({userID: req.user , time:{$gt: new Date(new Date().setMonth(new Date().getMonth()-1))}}).exec(function(err,obj) { 
         
         // if (!obj) {
         //     req.flash('error', 'that user does have an expense from this month');
         //     console.log(1)
         //     return res.redirect('spending');
         // }
-    Expense.findOne({userID: req.user}).exec(function(err,obj) { 
+    
         rent = obj.rentAmount
         car = obj.carAmount
         phone = obj.phoneAmount
@@ -78,7 +121,7 @@ router.get('/spending2', ensureAuthenticated, function(req, res) {
             Util : util,
             Internet : internet
         });
-    });
+    
     });
 });
 
@@ -95,7 +138,7 @@ router.get('/spending3', ensureAuthenticated, function(req, res) {
             return res.redirect('spending');
         }
         //Account.
-        Expense.findOne({userID: req.user}).exec(function(err,obj) { 
+        Expense.findOne({userID: req.user, time:{$gt: new Date(new Date().setMonth(new Date().getMonth()-1))}}).exec(function(err,obj) { 
             rent = obj.rentAmount
             car = obj.carAmount
             phone = obj.phoneAmount
@@ -137,30 +180,58 @@ router.get('/spending3', ensureAuthenticated, function(req, res) {
 
 
 
-// router.get('/spending3', ensureAuthenticated, function(req, res) {
-//     Account.findOne({userID: req.user}).exec(function(err,obj) { 
-//         jacob = obj.savingsAmount 
-//         //res.send(jacob)
-//         //console.log(jacob)
-    
-//         if (!obj) {
-//             req.flash('error', 'that user does not have accounts');
-//             return res.redirect('spending');
-//         }
-//         //Account.
-        
-//         // var jacob = res.locals.jacob
-//         res.render('spending3', {
-//             user: req.user, 
-//             data: jacob 
-//         });
-
-//     });
-// });
-
 
 router.get('/monthlyPayment', ensureAuthenticated, (req, res) => {
-    res.render('monthlyPayment', { user: req.user });
+    Account.findOne({userID: req.user}).exec(function(err,obj) { 
+        savingsamt = obj.savingsAmount 
+        checkingamt = obj.checkingAmount
+        incomeamt = obj.monthlyIncome 
+        //res.send(jacob)
+        //console.log(jacob)
+    
+        if (!obj) {
+            req.flash('error', 'that user does not have accounts');
+            return res.redirect('dashboard');
+        }
+        //Account.
+        Expense.findOne({userID: req.user, time:{$gt: new Date(new Date().setMonth(new Date().getMonth()-1))}}).exec(function(err,obj) { 
+            rent = obj.rentAmount
+            car = obj.carAmount
+            phone = obj.phoneAmount
+            food = obj.foodAmount
+            fuel = obj.fuelAmount
+            leisure = obj.leisureAmount
+            memberships = obj.membershipsAmount
+            util = obj.utilitiesAmount
+            internet = obj.internetAmount
+        
+            if (!obj) {
+                req.flash('error', 'that user does not have expenses');
+                return res.redirect('dashboard');
+            }
+            //Account.
+            
+            // var jacob = res.locals.jacob
+            res.render('monthlyPayment', {
+                user: req.user, 
+                Rent: rent,
+                Car : car,
+                Phone : phone,
+                Food : food,
+                Fuel : fuel,
+                Leisure : leisure,
+                Memberships : memberships,
+                Util : util,
+                Internet : internet,
+                savings: savingsamt,
+                checking : checkingamt,
+                income : incomeamt
+
+            });
+    
+        });
+        
+    });
 })
 // router.get('/fileExpenses', ensureAuthenticated, (req, res) => {
 //     Expense.findOne({userID: req.user}).exec(function(err,obj) { 
@@ -175,16 +246,6 @@ router.get('/monthlyPayment', ensureAuthenticated, (req, res) => {
     
 // })
 // });
-
-
-
-
-
-
-
-
-
-
 
 
 
