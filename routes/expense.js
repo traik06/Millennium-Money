@@ -24,7 +24,7 @@ router.get('/spending1', ensureAuthenticated, function(req, res) {
             req.flash('error', 'that user does not have accounts');
             return res.redirect('spending');
         }
-        //Account.
+        
         
         
         res.render('spending1', {
@@ -85,11 +85,7 @@ router.get('/spending1', ensureAuthenticated, function(req, res) {
 router.get('/spending2', ensureAuthenticated, function(req, res) {
     Expense.findOne({userID: req.user , time:{$gt: new Date(new Date().setMonth(new Date().getMonth()-1))}}).exec(function(err,obj) { 
         
-        // if (!obj) {
-        //     req.flash('error', 'that user does have an expense from this month');
-        //     console.log(1)
-        //     return res.redirect('spending');
-        // }
+       
     
         rent = obj.rentAmount
         car = obj.carAmount
@@ -106,9 +102,9 @@ router.get('/spending2', ensureAuthenticated, function(req, res) {
             console.log(2)
             return res.redirect('spending');
         }
-        //Account.
         
-        // var jacob = res.locals.jacob
+        
+        
         res.render('spending2', {
             user: req.user, 
             Rent: rent,
@@ -130,14 +126,13 @@ router.get('/spending3', ensureAuthenticated, function(req, res) {
         savingsamt = obj.savingsAmount 
         checkingamt = obj.checkingAmount
         incomeamt = obj.monthlyIncome 
-        //res.send(jacob)
-        //console.log(jacob)
+       
     
         if (!obj) {
             req.flash('error', 'that user does not have accounts');
             return res.redirect('spending');
         }
-        //Account.
+        
         Expense.findOne({userID: req.user, time:{$gt: new Date(new Date().setMonth(new Date().getMonth()-1))}}).exec(function(err,obj) { 
             rent = obj.rentAmount
             car = obj.carAmount
@@ -153,9 +148,9 @@ router.get('/spending3', ensureAuthenticated, function(req, res) {
                 req.flash('error', 'that user does not have expenses');
                 return res.redirect('spending');
             }
-            //Account.
+           
             
-            // var jacob = res.locals.jacob
+            
             res.render('spending3', {
                 user: req.user, 
                 Rent: rent,
@@ -186,14 +181,13 @@ router.get('/monthlyPayment', ensureAuthenticated, (req, res) => {
         savingsamt = obj.savingsAmount 
         checkingamt = obj.checkingAmount
         incomeamt = obj.monthlyIncome 
-        //res.send(jacob)
-        //console.log(jacob)
+       
     
         if (!obj) {
             req.flash('error', 'that user does not have accounts');
             return res.redirect('dashboard');
         }
-        //Account.
+       
         Expense.findOne({userID: req.user, time:{$gt: new Date(new Date().setMonth(new Date().getMonth()-1))}}).exec(function(err,obj) { 
             rent = obj.rentAmount
             car = obj.carAmount
@@ -209,9 +203,7 @@ router.get('/monthlyPayment', ensureAuthenticated, (req, res) => {
                 req.flash('error', 'that user does not have expenses');
                 return res.redirect('dashboard');
             }
-            //Account.
-            
-            // var jacob = res.locals.jacob
+         
             res.render('monthlyPayment', {
                 user: req.user, 
                 Rent: rent,

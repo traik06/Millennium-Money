@@ -12,12 +12,7 @@ router.get('/avgSpendingSplash', (req, res) => {
 router.get('/avgSpending', ensureAuthenticated, function(req, res) {
     Expense.findOne({userID: req.user , time:{$gt: new Date(new Date().setMonth(new Date().getMonth()-1))}}).exec(function(err,obj) { 
         
-        // if (!obj) {
-        //     req.flash('error', 'that user does have an expense from this month');
-        //     console.log(1)
-        //     return res.redirect('spending');
-        // }
-    
+        
         rent1 = obj.rentAmount
         car1 = obj.carAmount
         phone1 = obj.phoneAmount
@@ -35,7 +30,7 @@ router.get('/avgSpending', ensureAuthenticated, function(req, res) {
         }
         //Account.
         Expense.findOne({userID: req.user , time:{$lt: new Date(new Date().setMonth(new Date().getMonth()-1))}}).exec(function(err,obj) { 
-        // var jacob = res.locals.jacob
+        
 
         rent2 = obj.rentAmount
         car2 = obj.carAmount

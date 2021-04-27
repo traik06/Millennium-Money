@@ -61,3 +61,5 @@ db.once('open', () => console.error('Connected to Mongoose'))
 
 // app port
 app.listen(process.env.PORT || 3000)
+
+module.exports = app;
