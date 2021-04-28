@@ -22,22 +22,21 @@ describe ("POST /register", function (done) {
     it("should redirect to login if user is registerd", function(done){
       request(app)
           .post('/register')
-          // .set('Accept', 'application/json')
-          // .set('Content-Type', 'application/json')
+          
           .type('form')
           .send({ 
             username: "f",
             email: "f@f",
             password: "f"
             })
-          // .expect(200)
+          
           .expect('Location', '/login')
           .expect(302, done);
 
     });
     it('should register user', function(done){
       request(app)
-      //authenticatedUser
+      
       .post('/register')
       .type('form')
       .send({
@@ -57,7 +56,7 @@ describe ("POST /register", function (done) {
     });
     it('fail at registration, not valid username', function(done){
       request(app)
-      //authenticatedUser
+      
       .post('/register')
       .type('form')
       .send({
@@ -76,7 +75,7 @@ describe ("POST /register", function (done) {
     });
     it('fail at registration, not valid password', function(done){
       request(app)
-      //authenticatedUser
+      
       .post('/register')
       .type('form')
       .send({
@@ -95,7 +94,7 @@ describe ("POST /register", function (done) {
     });
     it('fail at registration, not valid email', function(done){
       request(app)
-      //authenticatedUser
+      
       .post('/register')
       .type('form')
       .send({
